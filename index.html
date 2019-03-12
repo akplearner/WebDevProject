@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CS355 Anthony Pena</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="functionality.js"></script>
+    </head>
+
+    <body>
+        <h1>Anthony's Page</h1>
+        <div class="navbar">
+                <div class="dropdown">
+                  <button class="dropbtn">Course 
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="dropdown-content">
+                    <a href="https://learn.zybooks.com/zybook/CUNYCSCI355TeitelmanSpring2019">Zybook</a>
+                  </div>
+                </div> 
+
+                <div class="dropdown">
+                        <button class="dropbtn">Search 
+                          <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                          <a href="search/Mode1.html">Mode 1</a>
+                          <a href="#">Mode 2</a>
+                          <a href="#">Mode 3</a>
+                        </div>
+                </div> 
+
+                <div class="dropdown">
+                        <button class="dropbtn">Browser 
+                          <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                          <a href="#" onclick=windowFun()>Window</a>
+                          <a href="#" onclick=screenFun()>Screen</a>
+                          <a href="#" onclick=locFun()>Location</a>
+                        </div>
+                </div> 
+
+                <div class="dropdown">
+                        <button class="dropbtn">About 
+                          <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                          <a href="#">Developer</a>
+                          <a href="mailto:akplearner@gmail.com">Contact Us</a>
+                        </div>
+                </div> 
+        </div>
+        <!--Browser information-->
+        <div class="BrowserInfo">
+            <p id="windowD"></p>
+
+            <p id="screenW"></p>
+            <p id="screenH"></p>
+    
+            <p id="locHref"></p>
+            <p id="locHostName"></p>
+            <p id="locPath"></p>
+            <p id="locProtocol"></p>
+            <p id="locPort"></p>
+        </div>
+
+
+    </body>
+</html>
