@@ -30,6 +30,19 @@
 
   li {
     list-style-type: none;
-    width: 300px;
+    width: 700px;
   }
   
+  .uniResult{
+    display: flex;
+  }
+
+  div.uniResult img{
+    padding: 20px;
+    width: 150px;
+    height: 150px;
+  }
+
+  div.uniResult p{
+    padding: 20px;
+  }
