@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta charset="utf-8">
+            <title>Pahse 2 Search</title>
+            <link rel="stylesheet" type="text/css" href="searchStyle.css">
+            <script src="searchFunctionality.js"></script>
+    </head>
+    <body>
+        
+        <div class="resultBody" > 
+                <!--upload button:
+                        1. set up button
+                        2. save info data structure
+                        3. print in table
+                        4. searchable table like result Body
+                -->
+                <div style="margin:20px;"> 
+                                <div class="container ">	        
+                                                <header class="row">
+                                                        <div class="col-xs-12">	
+                                                                <h1>Programming Task</h1>	
+                                        </div>
+                                    </header>  
+                                             
+                                                <section class="row">
+                                                        <div class="col-xs-12">						
+                                                                <h2 id="introHeader">Upload your CSV File</h2>
+                                                                
+                                                                <fieldset>
+                                                                        <input type="file" name="File Upload" id="txtFileUpload" accept=".csv" />
+                                                                </fieldset>
+                        
+                                                                <ul id="errorOutPut"  class="outPut hidden">						
+                                                                        <li>Sorry there has been an error.</li>
+                                                                </ul>
+                                                                
+                                                                <ul id="statOutPut" class="outPut">
+                                                                        <li>Total number of integers: <span data-bind="text: countOfIntegers">null</span></li>	
+                                                                        <li>Mean value of all integers (to three decimal places): <span data-bind="text: meanOfIntegers">null</span></li>	
+                                                                        <li>Highest number of integers in a single line: <span data-bind="text: highestLength">null</span></li>			
+                                                                        <li>Most common integer: <span data-bind="text: commonInteger">null</span></li>				
+                                                                </ul>
+                                                        </div>
+                                                </section>
+                                        
+                                    <footer class="row">
+                                        <div class="col-xs-12">	
+                                                <p>By Darren Ivey</p>
+                                        </div>
+                                    </footer>
+                                        </div>		
+                                        
+                                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+                        
+                </div>
+        </div>
+            <div class="searchBarOut" >
+                    <form>
+                        <div class="searchBarInside">
+                                <input id="myInput" onkeyup="searchFunction()" type="text" name="text"  placeholder="Search mode Schoolar"  class="searchInput">
+                      </div>
+                    </form>
+               </div>
+            </div>
+            <br><br><br><br>
+            <div class="resultBody" >   
+                        <ul id="myUL">
+                                        <div class="uniResult">
+                                                <img src="imgTemp/bioTech.jpeg">
+                                                <h3 href="#">Biotech and AI</h3>
+                                                <p>Empower Decision-Making with AI-Powered Solutions for Pharma & Biotech Data Analytics. Learn More. Site Optimization. Drug Discovery. KOL Identification. Data as a Service. Drug Repurposing. Highlights: AI And Blockchain Powered Products, Offering Real Time, Relevant Data And Analytics</p>
+                                        </div>
+                                        <br>
+                                        <div class="uniResult">
+                                                <img src="imgTemp/aiFinance.jpg">
+                                                <h3>Finanace and AI</h3>
+                                                <p> Avoiding fraud and money laundering is a challenge for many financial organizations. Artificial intelligence has the potential to help banks become more efficient in the process of detecting fraud and money laundering.                                                </p>
+                                        </div>
+                                      
+                                        <div class="uniResult">
+                                                <img src="imgTemp/aiSpace.jpg">
+                                                <h3>Space Travel and AI</h3>
+                                                <p>Artificial intelligence in space exploration is gathering momentum. Over the coming years, new missions look likely to be turbo-charged by AI as we voyage to comets, moons, and planets and explore the possibilities of mining asteroids.</p>
+                                       
+                                        </div>
+                                        <br>
+                                        <div class="uniResult">
+                                                <img src="imgTemp/medAI.jpeg">
+                                                <h3 href="#">Medicine and AI</h3>
+                                                <p>AI-based modeling and management of healthcare pathways and clinical guidelines; Models and systems for AI-based population health; AI in medical and healthcare education; Methodological, philosophical, ethical, and social issues of AI in healthcare, medically-oriented human biology, and medicine.</p>
+                                        
+                                        </div>
+                                        <br>
+                                        <div class="uniResult">
+                                                <img src="imgTemp/businessAI.jpg">
+                                                <h3>Bisiness and AI</h3>
+                                                <p>Sep 10, 2017 - These and many other fascinating insights are from the Boston Consulting Group and MIT Sloan Management Review study published this week, Reshaping Business With Artificial Intelligence. ... The research found significant gaps between companies who have already adopted and understand ...</p>
+                                        </div>
+                                        <br>
+                                        
+                                      </ul> 
+            </div>            
+    </body>
+</html>

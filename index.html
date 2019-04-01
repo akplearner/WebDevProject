@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <title>CS355 Anthony Pena</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="functionality.js"></script>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>WEB 355</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+      <script src="main.js"></script>        
     </head>
 
     <body>
-        <h1>Anthony's Page</h1>
         <div class="navbar">
                 <div class="dropdown">
                   <button class="dropbtn">Course 
@@ -24,9 +25,9 @@
                           <i class="fa fa-caret-down"></i>
                         </button>
                         <div class="dropdown-content">
-                          <a href="search/Mode1.html">Mode 1</a>
-                          <a href="#">Mode 2</a>
-                          <a href="#">Mode 3</a>
+                          <a href="phase1/Mode1.html">Phase 1</a>
+                          <a href="phase2/Mode2.html">Phase 2</a>
+                          <a href="#">Phase 3</a>
                         </div>
                 </div> 
 
@@ -37,7 +38,8 @@
                         <div class="dropdown-content">
                           <a href="#" onclick=windowFun()>Window</a>
                           <a href="#" onclick=screenFun()>Screen</a>
-                          <a href="#" onclick=locFun()>Location</a>
+                          <a href="#" onclick=browserFun()>Browser</a>
+                          <a href="#" onclick=getLocation()>Geo Location</a>
                         </div>
                 </div> 
 
@@ -46,7 +48,7 @@
                           <i class="fa fa-caret-down"></i>
                         </button>
                         <div class="dropdown-content">
-                          <a href="#">Developer</a>
+                          <a href="developers.html">Developer</a>
                           <a href="about.html">Contact Us</a>
                         </div>
                 </div> 
@@ -63,8 +65,11 @@
             <p id="locPath"></p>
             <p id="locProtocol"></p>
             <p id="locPort"></p>
+
+
+            <p id="geoLoc"></p> 
+            <p id="position"></p>
         </div>
-
-
+        
     </body>
 </html>
