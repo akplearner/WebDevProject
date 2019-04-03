@@ -36,5 +36,7 @@ function showPosition(position) {
   "<br>Longitude: " + position.coords.longitude;
 }
 
+function toggleBar(){
+  document.getElementById("sidebar").classList.toggle('active');
+}
 
-  }

@@ -4,9 +4,78 @@
             <meta charset="utf-8">
             <title>Pahse 2 Search</title>
             <link rel="stylesheet" type="text/css" href="searchStyle.css">
+            <link rel="stylesheet" type="text/css" media="screen" href="../navigatorStyle.css">
+            <script src="../main.js"></script>  
             <script src="searchFunctionality.js"></script>
     </head>
     <body>
+        
+                <div id="sidebar">
+                                <div class="toggle-btn" onclick="toggleBar()">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                </div>
+                    
+                                <ul>
+                                    <h1>Profile Pic</h1>
+                                </ul>
+                                
+                                <ul >
+                                    <li class="dropdown">
+                                        <a href="#">Course</a>
+                                        <ul class="dropdown-content">
+                                            <li><a href="https://learn.zybooks.com/zybook/CUNYCSCI355TeitelmanSpring2019">Zybook</a></li>
+                                        </ul>
+                                    </li>
+                                    
+                                    <li class="dropdown">
+                                        <a href="#" >Search</a>
+                                        <ul class="dropdown-content">
+                                            <li><a href="../phase1/Mode1.html">Phase 1</a></li>
+                                        </ul>
+                                        <ul class="dropdown-content">
+                                            <li><a href="../phase2/Mode2.html">Phase 2</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#">Browser</a>
+                                        <ul class="dropdown-content">
+                                                <li>
+                                                    <div class="dropdown-content">
+                                                        <a href="#" onclick=windowFun()>Window</a>
+                                                        <a href="#" onclick=screenFun()>Screen</a>
+                                                        <a href="#" onclick=browserFun()>Browser</a>
+                                                        <a href="#" onclick=getLocation()>Geo Location</a>
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                        
+                                    </li>
+                                    <li><a href="../developers.html">Develobper</a></li>
+                                    <li><a href="../about.html">Contact Us</a></li>
+                                </ul>
+                            </div>
+                    
+                               <!--Browser information-->
+                               <div class="BrowserInfo">
+                                    <p id="windowD"></p>
+                        
+                                    <p id="screenW"></p>
+                                    <p id="screenH"></p>
+                            
+                                    <p id="locHref"></p>
+                                    <p id="locHostName"></p>
+                                    <p id="locPath"></p>
+                                    <p id="locProtocol"></p>
+                                    <p id="locPort"></p>
+                        
+                        
+                                    <p id="geoLoc"></p> 
+                                    <p id="position"></p>
+                                </div>
+                    
+        <!--BELOW IS SITE CODE-->
         
         <div class="resultBody" > 
                 <!--upload button:
@@ -15,47 +84,79 @@
                         3. print in table
                         4. searchable table like result Body
                 -->
-                <div style="margin:20px;"> 
-                                <div class="container ">	        
-                                                <header class="row">
-                                                        <div class="col-xs-12">	
-                                                                <h1>Programming Task</h1>	
-                                        </div>
-                                    </header>  
-                                             
-                                                <section class="row">
-                                                        <div class="col-xs-12">						
-                                                                <h2 id="introHeader">Upload your CSV File</h2>
-                                                                
-                                                                <fieldset>
-                                                                        <input type="file" name="File Upload" id="txtFileUpload" accept=".csv" />
-                                                                </fieldset>
-                        
-                                                                <ul id="errorOutPut"  class="outPut hidden">						
-                                                                        <li>Sorry there has been an error.</li>
-                                                                </ul>
-                                                                
-                                                                <ul id="statOutPut" class="outPut">
-                                                                        <li>Total number of integers: <span data-bind="text: countOfIntegers">null</span></li>	
-                                                                        <li>Mean value of all integers (to three decimal places): <span data-bind="text: meanOfIntegers">null</span></li>	
-                                                                        <li>Highest number of integers in a single line: <span data-bind="text: highestLength">null</span></li>			
-                                                                        <li>Most common integer: <span data-bind="text: commonInteger">null</span></li>				
-                                                                </ul>
-                                                        </div>
-                                                </section>
-                                        
-                                    <footer class="row">
-                                        <div class="col-xs-12">	
-                                                <p>By Darren Ivey</p>
-                                        </div>
-                                    </footer>
-                                        </div>		
-                                        
-                                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-                            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
-                        
-                </div>
+                <div style="margin:20px;">  
+                        <!--GET File Input-->
+        <style>
+                #byte_content {
+                  margin: 5px 0;
+                  max-height: 100px;
+                  overflow-y: auto;
+                  overflow-x: hidden;
+                }
+                #byte_range { margin-top: 5px; }
+              </style>
+              
+              <input type="file" id="files" name="file" /> Read bytes: 
+              <span class="readBytesButtons">
+                <button data-startbyte="0" data-endbyte="4">1-5</button>
+                <button data-startbyte="5" data-endbyte="14">6-15</button>
+                <button data-startbyte="6" data-endbyte="7">7-8</button>
+                <button>entire file</button>
+              </span>
+              <div id="byte_range"></div>
+              <div id="byte_content"></div>
+              
+              <script>
+                function readBlob(opt_startByte, opt_stopByte) {
+              
+                  var files = document.getElementById('files').files;
+                  if (!files.length) {
+                    alert('Please select a file!');
+                    return;
+                  }
+              
+                  var file = files[0];
+                  var start = parseInt(opt_startByte) || 0;
+                  var stop = parseInt(opt_stopByte) || file.size - 1;
+              
+                  var reader = new FileReader();
+              
+                  // If we use onloadend, we need to check the readyState.
+                  reader.onloadend = function(evt) {
+                    if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+                      document.getElementById('byte_content').textContent = evt.target.result;
+                      document.getElementById('byte_range').textContent = 
+                          ['Read bytes: ', start + 1, ' - ', stop + 1,
+                           ' of ', file.size, ' byte file'].join('');
+                    }
+                  };
+              
+                  var blob = file.slice(start, stop + 1);
+                  reader.readAsBinaryString(blob);
+                }
+                
+                document.querySelector('.readBytesButtons').addEventListener('click', function(evt) {
+                  if (evt.target.tagName.toLowerCase() == 'button') {
+                    var startByte = evt.target.getAttribute('data-startbyte');
+                    var endByte = evt.target.getAttribute('data-endbyte');
+                    readBlob(startByte, endByte);
+                  }
+                }, false);
+              </script>
+        
+                </div>     
+                       
         </div>
+
+
+        
+
+
+
+
+
+
+            <!--Search Bar OUTPUT-->
             <div class="searchBarOut" >
                     <form>
                         <div class="searchBarInside">
@@ -65,36 +166,36 @@
                </div>
             </div>
             <br><br><br><br>
-            <div class="resultBody" >   
+            <div class="resultBody">   
                         <ul id="myUL">
                                         <div class="uniResult">
-                                                <img src="imgTemp/bioTech.jpeg">
+                                                <img src="../imgTemp/bioTech.jpeg">
                                                 <h3 href="#">Biotech and AI</h3>
                                                 <p>Empower Decision-Making with AI-Powered Solutions for Pharma & Biotech Data Analytics. Learn More. Site Optimization. Drug Discovery. KOL Identification. Data as a Service. Drug Repurposing. Highlights: AI And Blockchain Powered Products, Offering Real Time, Relevant Data And Analytics</p>
                                         </div>
                                         <br>
                                         <div class="uniResult">
-                                                <img src="imgTemp/aiFinance.jpg">
+                                                <img src="../imgTemp/aiFinance.jpg">
                                                 <h3>Finanace and AI</h3>
                                                 <p> Avoiding fraud and money laundering is a challenge for many financial organizations. Artificial intelligence has the potential to help banks become more efficient in the process of detecting fraud and money laundering.                                                </p>
                                         </div>
                                       
                                         <div class="uniResult">
-                                                <img src="imgTemp/aiSpace.jpg">
+                                                <img src="../imgTemp/aiSpace.jpg">
                                                 <h3>Space Travel and AI</h3>
                                                 <p>Artificial intelligence in space exploration is gathering momentum. Over the coming years, new missions look likely to be turbo-charged by AI as we voyage to comets, moons, and planets and explore the possibilities of mining asteroids.</p>
                                        
                                         </div>
                                         <br>
                                         <div class="uniResult">
-                                                <img src="imgTemp/medAI.jpeg">
+                                                <img src="../imgTemp/medAI.jpeg">
                                                 <h3 href="#">Medicine and AI</h3>
                                                 <p>AI-based modeling and management of healthcare pathways and clinical guidelines; Models and systems for AI-based population health; AI in medical and healthcare education; Methodological, philosophical, ethical, and social issues of AI in healthcare, medically-oriented human biology, and medicine.</p>
                                         
                                         </div>
                                         <br>
                                         <div class="uniResult">
-                                                <img src="imgTemp/businessAI.jpg">
+                                                <img src="../imgTemp/businessAI.jpg">
                                                 <h3>Bisiness and AI</h3>
                                                 <p>Sep 10, 2017 - These and many other fascinating insights are from the Boston Consulting Group and MIT Sloan Management Review study published this week, Reshaping Business With Artificial Intelligence. ... The research found significant gaps between companies who have already adopted and understand ...</p>
                                         </div>

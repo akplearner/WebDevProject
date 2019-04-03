@@ -28,10 +28,6 @@
     padding: 0px;
   }
 
-  li {
-    list-style-type: none;
-    width: 700px;
-  }
   
   .uniResult{
     display: flex;

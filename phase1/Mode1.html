@@ -1,57 +1,121 @@
 <!DOCTYPE html>
 <html>
     <head>
-            <meta charset="utf-8">
-            <title>Mode1 Search</title>
-            <link rel="stylesheet" type="text/css" href="searchStyle.css">
-            <script src="searchFunctionality.js"></script>
+        <meta charset="utf-8">
+        <title>Mode1 Search</title>        
+        <!--Styling-->
+        <link rel="stylesheet" type="text/css" media="screen" href="../main.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="../navigatorStyle.css">
+        <link rel="stylesheet" type="text/css" href="searchStyle.css">
+        <!--javascript-->
+        <script src="../main.js"></script> 
+        <script src="searchFunctionality.js"></script>
     </head>
     <body>
+        <!--SIDE BAR-->
+        <div id="sidebar">
+                        <div class="toggle-btn" onclick="toggleBar()">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                        </div>
+                        <ul>
+                            <h1>Profile Pic</h1>
+                        </ul>
+                        <ul >
+                            <li class="dropdown">
+                                <a href="#">Course</a>
+                                <ul class="dropdown-content">
+                                    <li><a href="https://learn.zybooks.com/zybook/CUNYCSCI355TeitelmanSpring2019">Zybook</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" >Search</a>
+                                <ul class="dropdown-content">
+                                    <li><a href="../phase1/Mode1.html">Phase 1</a></li>
+                                </ul>
+                                <ul class="dropdown-content">
+                                    <li><a href="../phase2/Mode2.html">Phase 2</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#">Browser</a>
+                                <ul class="dropdown-content">
+                                        <li>
+                                            <div class="dropdown-content">
+                                                <a href="#" onclick=windowFun()>Window</a>
+                                                <a href="#" onclick=screenFun()>Screen</a>
+                                                <a href="#" onclick=browserFun()>Browser</a>
+                                                <a href="#" onclick=getLocation()>Geo Location</a>
+                                            </div>
+                                        </li>
+                                </ul>
+                            </li>
+                            <li><a href="../developers.html">Develobper</a></li>
+                            <li><a href="../about.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                       <!--Browser information-->
+                       <div class="BrowserInfo">
+                            <p id="windowD"></p>
+                
+                            <p id="screenW"></p>
+                            <p id="screenH"></p>
+                    
+                            <p id="locHref"></p>
+                            <p id="locHostName"></p>
+                            <p id="locPath"></p>
+                            <p id="locProtocol"></p>
+                            <p id="locPort"></p>
+                
+                
+                            <p id="geoLoc"></p> 
+                            <p id="position"></p>
+                        </div>
+
+            <!--SEARCH BAR CODE-->
             <div class="searchBarOut" >
-                    <form>
-                        <div class="searchBarInside">
-                                <input id="myInput" onkeyup="myFunction()" type="text" name="text"  placeholder="Search mode Schoolar"  class="searchInput">
-                      </div>
-                    </form>
-               </div>
+                <form>
+                    <div class="searchBarInside">
+                        <input id="myInput" onkeyup="myFunction()" type="text" name="text"  placeholder="Search mode Schoolar"  class="searchInput">
+                    </div>
+                </form>
             </div>
-            <br><br><br><br>
-            <div class="resultBody" >   
-                        <ul id="myUL">
-                                        <div class="uniResult">
-                                                <img src="imgTemp/bioTech.jpeg">
-                                                <h3 href="#">Biotech and AI</h3>
-                                                <p>Empower Decision-Making with AI-Powered Solutions for Pharma & Biotech Data Analytics. Learn More. Site Optimization. Drug Discovery. KOL Identification. Data as a Service. Drug Repurposing. Highlights: AI And Blockchain Powered Products, Offering Real Time, Relevant Data And Analytics</p>
-                                        </div>
-                                        <br>
-                                        <div class="uniResult">
-                                                <img src="imgTemp/aiFinance.jpg">
-                                                <h3>Finanace and AI</h3>
-                                                <p> Avoiding fraud and money laundering is a challenge for many financial organizations. Artificial intelligence has the potential to help banks become more efficient in the process of detecting fraud and money laundering.                                                </p>
-                                        </div>
-                                      
-                                        <div class="uniResult">
-                                                <img src="imgTemp/aiSpace.jpg">
-                                                <h3>Space Travel and AI</h3>
-                                                <p>Artificial intelligence in space exploration is gathering momentum. Over the coming years, new missions look likely to be turbo-charged by AI as we voyage to comets, moons, and planets and explore the possibilities of mining asteroids.</p>
-                                       
-                                        </div>
-                                        <br>
-                                        <div class="uniResult">
-                                                <img src="imgTemp/medAI.jpeg">
-                                                <h3 href="#">Medicine and AI</h3>
-                                                <p>AI-based modeling and management of healthcare pathways and clinical guidelines; Models and systems for AI-based population health; AI in medical and healthcare education; Methodological, philosophical, ethical, and social issues of AI in healthcare, medically-oriented human biology, and medicine.</p>
+        </div>
+        <br><br><br><br>    
+        <div class="resultBody" >   
+            <ul id="myUL">
+                <div class="uniResult">
+                    <img src="../phase1/">
+                        <h3 href="#">Biotech and AI</h3>
+                            <p>Empower Decision-Making with AI-Powered Solutions for Pharma & Biotech Data Analytics. Learn More. Site Optimization. Drug Discovery. KOL Identification. Data as a Service. Drug Repurposing. Highlights: AI And Blockchain Powered Products, Offering Real Time, Relevant Data And Analytics</p>
+                </div>
+                <br>
+                <div class="uniResult">
+                    <img src="../imgTemp/aiFinance.jpg">
+                    <h3>Finanace and AI</h3>
+                    <p> Avoiding fraud and money laundering is a challenge for many financial organizations. Artificial intelligence has the potential to help banks become more efficient in the process of detecting fraud and money laundering.                                                </p>
+                </div>                    
+                <div class="uniResult">
+                    <img src="../imgTemp/aiSpace.jpg">
+                        <h3>Space Travel and AI</h3>
+                            <p>Artificial intelligence in space exploration is gathering momentum. Over the coming years, new missions look likely to be turbo-charged by AI as we voyage to comets, moons, and planets and explore the possibilities of mining asteroids.</p>                       
+                </div>
+                <br>
+                <div class="uniResult">
+                    <img src="../imgTemp/medAI.jpeg">
+                        <h3 href="#">Medicine and AI</h3>
+                        <p>AI-based modeling and management of healthcare pathways and clinical guidelines; Models and systems for AI-based population health; AI in medical and healthcare education; Methodological, philosophical, ethical, and social issues of AI in healthcare, medically-oriented human biology, and medicine.</p>       
+                </div>
+                <br>
+                <div class="uniResult">
+                    <img src="../imgTemp/businessAI.jpg">
+                    <h3>Business and AI</h3>
+                    <p>Sep 10, 2017 - These and many other fascinating insights are from the Boston Consulting Group and MIT Sloan Management Review study published this week, Reshaping Business With Artificial Intelligence. ... The research found significant gaps between companies who have already adopted and understand ...</p>
+                </div>
+                <br>
                                         
-                                        </div>
-                                        <br>
-                                        <div class="uniResult">
-                                                <img src="imgTemp/businessAI.jpg">
-                                                <h3>Bisiness and AI</h3>
-                                                <p>Sep 10, 2017 - These and many other fascinating insights are from the Boston Consulting Group and MIT Sloan Management Review study published this week, Reshaping Business With Artificial Intelligence. ... The research found significant gaps between companies who have already adopted and understand ...</p>
-                                        </div>
-                                        <br>
-                                        
-                                      </ul> 
-            </div>            
+            </ul> 
+        </div>            
     </body>
 </html>
